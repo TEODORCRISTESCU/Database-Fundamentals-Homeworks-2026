@@ -1,0 +1,17 @@
+CREATE TABLE people (
+  name varchar(50),
+  street varchar(50),
+  age INT
+  );
+
+  
+INSERT INTO people1 (name, street, age)
+VALUES 
+    ('Alice Johnson', '123 Maple Ave', 28),
+    ('Bob Smith', '456 Oak St', 34),
+    ('Charlie Davis', '789 Pine Rd', 22),
+    ('Diana Prince', '101 Cedar Blvd', 30);
+        
+select * from people
+EXCEPT 
+select 'Alice Johnson', '123 Maple Ave', 28;
