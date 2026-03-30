@@ -1,0 +1,11 @@
+
+1NF: 1’st normal form states that a db should have the following traits: atomicity ( no multi valued attributes), key uniqueness ( each row has a unique identifier ) and no repeating groups. 
+For these traits, the given table satisfies these conditions. Thus for the 1NF form of the given db, the initial table is the 1NF table.
+
+2NF: The 2’nd normal form states that a database must first satisfy all requirements of 1NF and then eliminate partial functional dependencies. 
+This means that every non-key attribute must depend on the entire primary key, rather than just a portion of it. 
+In the context of the given table, attributes like P_name and PricePerUnit depend functionally on the Prod_ID, while Cust_name depends on the Cust_Id, rather than the transaction ID. 
+To fix this, I separated the initial table in 3 different tables: Customers, Product and Order. By doing this, each non-key column depends solely on the primary key, satisfying 2NF
+
+3NF: For the 3rd normal form, it states that no to non - primary key columns within the same table should depend on each other. The only 2 columns that match this description are the 
+QuantityPerUnit and the TotalPrice columns. By removing the TotalPrice column, the db is in 3NF form.
