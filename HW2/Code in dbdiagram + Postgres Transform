@@ -1,0 +1,36 @@
+---------
+POSTGRES IMPLEMENTATION
+
+CREATE TABLE "seller" (
+  "sellerId" int PRIMARY KEY,
+  "name" varchar(50),
+  "email" varchar(50)
+);
+
+CREATE TABLE "post" (
+  "postId" int PRIMARY KEY,
+  "description" varchar(100),
+  "price" int,
+  "sellerId" int
+);
+
+ALTER TABLE "post" ADD FOREIGN KEY ("sellerId") REFERENCES "seller" ("sellerId") DEFERRABLE INITIALLY IMMEDIATE;
+
+
+------
+
+DBdiagram IMPLEMENTATION
+
+Table seller {
+  sellerId int [primary key]
+  name varchar(50)
+  email varchar(50)
+}
+
+Table post {
+  postId int [primary key]
+  description varchar(100)
+  price int
+  sellerId int [ref: > seller.sellerId]
+
+}
