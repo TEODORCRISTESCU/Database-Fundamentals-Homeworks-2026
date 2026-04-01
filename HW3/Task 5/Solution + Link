@@ -1,0 +1,10 @@
+SELECT DISTINCT ON (id) 
+    id, 
+    first_name, 
+    last_name, 
+    department_id, 
+    salary
+FROM ms_employee_salary
+ORDER BY id ASC, salary DESC;
+
+LINK TO PROBLEM: https://platform.stratascratch.com/coding/10299-finding-updated-records?code_type=1
