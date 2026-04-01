@@ -1,0 +1,23 @@
+--SELECT * 
+--FROM crime_scene
+--WHERE date = 19860814 and location = "Coral Bay Marina"
+
+--SELECT * 
+--FROM person 
+--WHERE address LIKE "%Ocean drive"
+
+--SELECT * 
+--FROM person 
+--WHERE name LIKE "%ez" and name LIKE "%ul%"
+
+--SELECT *
+--from interviews 
+--WHERE person_id = 101 or person_id = 102
+
+--SELECT * 
+--FROM confessions
+--WHERE person_id = 6 OR person_id = 7 OR person_id = 8
+
+Select name
+FROM person
+where id = 8
