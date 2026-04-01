@@ -8,3 +8,6 @@ FROM facebook_posts
 JOIN facebook_reactions
 ON facebook_posts.post_id = facebook_reactions.post_id
 WHERE facebook_reactions.reaction = 'heart'
+
+
+LINK TO PROBLEM: https://platform.stratascratch.com/coding/10087-find-all-posts-which-were-reacted-to-with-a-heart?code_type=1
