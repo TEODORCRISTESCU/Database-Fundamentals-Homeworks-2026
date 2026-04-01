@@ -1,0 +1,10 @@
+select distinct
+facebook_posts.post_date,
+facebook_posts.post_id,
+facebook_posts.post_keywords,
+facebook_posts.post_text,
+facebook_posts.poster
+FROM facebook_posts
+JOIN facebook_reactions
+ON facebook_posts.post_id = facebook_reactions.post_id
+WHERE facebook_reactions.reaction = 'heart'
