@@ -1,0 +1,16 @@
+
+-- SELECT *
+--FROM crime_scene
+--WHERE location = "West Hollywood Records" and date = 19830715
+
+-- SELECT *
+--  FROM suspects 
+--  WHERE bandana_color = "red" OR accessory = "gold watch" 
+
+SELECT 
+suspects.name,
+interviews.transcript
+
+FROM suspects
+JOIN interviews ON suspects.id = interviews.suspect_id 
+WHERE bandana_color = "red" OR accessory = "gold watch"
