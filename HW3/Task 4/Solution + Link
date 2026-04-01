@@ -1,0 +1,8 @@
+SELECT 
+department, 
+first_name, 
+salary, 
+AVG(salary) OVER(PARTITION BY department) AS average_dept_salary
+FROM employee;
+
+LINK TO PROBLEM: https://platform.stratascratch.com/coding/9917-average-salaries?code_type=1
