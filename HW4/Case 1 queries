@@ -1,0 +1,12 @@
+SELECT *
+FROM suspects
+WHERE scar = "left cheek" AND attire = "trench coat"
+-----
+select 
+suspects.name,
+interviews.transcript
+------
+FROM suspects
+JOIN interviews 
+ON suspects.id = interviews.suspect_id
+WHERE suspects.attire = "trench coat" AND suspects.scar = "left cheek"
