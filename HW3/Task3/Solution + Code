@@ -1,0 +1,7 @@
+SELECT t.worker_title AS best_paid_title
+FROM worker w
+JOIN title t ON t.worker_ref_id = w.worker_id
+ORDER BY w.salary DESC
+LIMIT 2;
+
+LINK TO PROBLEM: https://platform.stratascratch.com/coding/10353-workers-with-the-highest-salaries?code_type=1
