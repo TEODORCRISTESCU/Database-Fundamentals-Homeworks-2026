@@ -1,0 +1,28 @@
+--select *
+--FROM crime_scene
+--WHERE location = "Fontainebleau Hotel"
+
+--SELECT *
+--FROM guest
+--WHERE occupation = "Actor" OR (occupation = "Consultant" AND name --LIKE  "%an%")
+
+--SELECT 
+--guest.name,
+--witness_statements.clue
+--FROM witness_statements
+--JOIN guest
+--ON guest.id = witness_statements.guest_id
+--WHERE guest.occupation = "Actor" or guest.name = "Vivian Nair"
+
+--SELECT 
+--final_interviews.guest_id,
+--final_interviews.confession
+--FROM final_interviews
+--JOIN marina_rentals
+--ON final_interviews.guest_id = marina_rentals.renter_guest_id
+--WHERE marina_rentals.dock_number = 3
+
+SELECT 
+name
+FROM guest
+WHERE id = 105
