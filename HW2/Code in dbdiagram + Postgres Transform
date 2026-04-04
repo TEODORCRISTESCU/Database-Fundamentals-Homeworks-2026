@@ -1,36 +1,75 @@
 ---------
 POSTGRES IMPLEMENTATION
 
-CREATE TABLE "seller" (
-  "sellerId" int PRIMARY KEY,
-  "name" varchar(50),
-  "email" varchar(50)
+CREATE TABLE Categories (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE "post" (
-  "postId" int PRIMARY KEY,
-  "description" varchar(100),
-  "price" int,
-  "sellerId" int
+CREATE TABLE Users (
+    user_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL
 );
 
-ALTER TABLE "post" ADD FOREIGN KEY ("sellerId") REFERENCES "seller" ("sellerId") DEFERRABLE INITIALLY IMMEDIATE;
+CREATE TABLE Posts (
+    post_id SERIAL PRIMARY KEY,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    still_active BOOLEAN DEFAULT TRUE,
+    user_id INT REFERENCES Users(user_id) ON DELETE CASCADE,
+    category_id INT REFERENCES Categories(category_id) ON DELETE SET NULL
+);
+
+CREATE TABLE Favourites (
+    favourite_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES Users(user_id) ON DELETE CASCADE,
+    post_id INT REFERENCES Posts(post_id) ON DELETE CASCADE,
+    saved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Post_Pictures (
+    media_id SERIAL PRIMARY KEY,
+    picture_url VARCHAR(2048) NOT NULL,
+    post_id INT REFERENCES Posts(post_id) ON DELETE CASCADE
+);
 
 
 ------
 
 DBdiagram IMPLEMENTATION
 
-Table seller {
-  sellerId int [primary key]
-  name varchar(50)
-  email varchar(50)
+table Posts {
+  post_id int [primary key]
+  description varchar
+  price decimal
+  CreatedAt timestamp
+  StillActive bool
+  sellerId int [ref: > Users.user_id]
+  Category int [ref: > Categories.category_id]
+  
 }
 
-Table post {
-  postId int [primary key]
-  description varchar(100)
-  price int
-  sellerId int [ref: > seller.sellerId]
+table Categories {
+  category_id int [primary key]
+  name varchar
+}
 
+table Users {
+  user_id int [primary key]
+  name varchar
+  email varchar
+}
+
+table Favourites {
+  favourite_id int [primary key]
+  Saved_Post int [ref: > Posts.post_id]
+  UserFav int [ref: > Users.user_id]
+}
+
+table post_Pictures {
+  media_id int [primary key]
+  PictureUrl varchar
+  PostId int [ref: > Posts.post_id]
 }
