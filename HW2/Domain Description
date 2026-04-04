@@ -1,0 +1,17 @@
+Domain Description – Peer-to-Peer Marketplace
+This database supports a peer-to-peer marketplace where users can browse, post, and save listings. It is structured around five core tables.
+
+- USER TABLE is the backbone of the system: it stores each user's unique identifier, their name, and email address, allowing the platform to manage accounts and link activity
+back to individuals.
+
+- POSTS TABLE holds all marketplace listings: when a user decides to sell something, their listing is recorded here with a unique ID, a price, a category reference, and a 
+description of the item. The table also tracks when the listing was created and includes a boolean flag that the backend uses to mark a post as expired once it passes a set time limit.
+
+- CATEGORIES TABLE keeps things organised on the browsing side. By grouping posts into categories, it makes it easier for users to navigate the marketplace and find what 
+they're looking for without scrolling through unrelated listings.
+
+- MEDIA TABLE handles images. Since sellers typically upload more than one photo of their item, this table provides a centralised place to store all pictures associated 
+with a given post, linked back to it by the post's ID.
+
+- FAVOURITES TABLE lets users save listings they're interested in; whether to revisit later or compare against other options. It ties a user to a post, creating a lightweight
+bookmarking system within the platform.
